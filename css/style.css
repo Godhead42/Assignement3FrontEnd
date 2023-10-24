@@ -149,4 +149,17 @@ body {
 .dropdown-item:hover {
     background-color: #4c3894; 
 }
-    
+.navbar-toggler-icon {
+    background-color: rgb(65, 58, 58); 
+}
+
+.myCarousel {
+    display: flex;
+    overflow: hidden;
+}
+
+.slider {
+    width: 100%;
+    flex: 0 0 20%; /* Ширина и количество видимых слайдов */
+    transition: transform 0.5s;
+}
