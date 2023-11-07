@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse justify-content-between flex-wrap mx-3 px-5" id="navbarSupportedContent">
             <ul class="navbar-nav mt-auto justify-content-center" style="margin-left: 318px;">
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-with-outline" href="#">IMPERIUM OF MAN
+                    <a class="nav-link text-with-outline" href="Imperium of man.html">IMPERIUM OF MAN
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">History</a></li>
                             <li><a class="dropdown-item" href="#">Golden age</a></li>
@@ -56,7 +56,7 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-with-outline" href="#">NECRONS
+                    <a class="nav-link text-with-outline" href="Necrons.html">NECRONS
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Sareh the Silent</a></li>
                             <li><a class="dropdown-item" href="#">Trazyn the Infinite</a></li>
@@ -64,7 +64,7 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link text-with-outline" href="#">XENOS
+                    <a class="nav-link text-with-outline" href="Xenos.html">XENOS
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Eldars</a></li>
                             <li><a class="dropdown-item" href="#">Drukhari</a></li>
@@ -79,25 +79,127 @@
 
     <div class="d-flex justify-content-center" style="background-size: 1000px; background-attachment: fixed; width: 100%;">
         <div class="mb-5" style="width: 60%; background-color: black;">
-        <div class="row mx-1">
-            
-            <div class="container countdown text-center w-100 mx-auto justify-content-center">
-                <form id="registrationForm" onsubmit="return validateForm()">
-                    <div class="mb-3">
-                        <label for="username" class="form-label form-title" style="font-size: 20px; font-weight: 600;">Username</label>
-                        <input type="text" class="form-control col-6 mx-auto " id="username" placeholder="Enter your username" required>
+            <main class=" container-fluid ">
+                <div class="row justify-content-center">
+                    <div class="col-5" id="reg">
+                        <form class="login-form">
+                            <p class="h1 text-light">Login</p>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label fs-4 text-light">Email address</label>
+                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputPassword1" class="form-label fs-4 text-light">Password</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1">
+                            </div>
+                            <button type="submit" class="btn btn-primary fs-4 text-light me-4" onclick="login()">Submit</button>
+                        </form>
+                        <form class="registration-form" style="display: none;">
+                            <p class="h1 text-light">Registration</p>
+                            <div class="mb-3">
+                                <label for="nickname" class="form-label fs-4 text-light">Nickname</label>
+                                <input type="text" class="form-control" id="nickname">
+                            </div>
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label fs-4 text-light">First Name</label>
+                                <input type="text" class="form-control" id="firstName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label fs-4 text-light">Last Name</label>
+                                <input type="text" class="form-control" id="lastName">
+                            </div>
+                            <div class="mb-3">
+                                <label for="birthdate" class="form-label fs-4 text-light">Date of Birth</label>
+                                <input type="date" class="form-control" id="birthdate">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label fs-4 text-light">Email address</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label fs-4 text-light">Password</label>
+                                <input type="password" class="form-control" id="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary fs-4 text-light me-4" onclick="registerAccount()">Submit</button>
+                        </form>
+                        <button type="button" id="toggleButton" class="btn btn-primary fs-4 text-light mt-1" onclick="toggleForm()">Don't have an account?</button>
                     </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label form-title" style="font-size: 20px; font-weight: 600;">Email address</label>
-                        <input type="email" class="form-control col-6 mx-auto" id="email" placeholder="name@example.com" required>
+                    <div class="col " id="accountInfo" style="display: none;">
+                        <div class="row  justify-content-center">
+                            <div class="col-5">
+                                <p class="h1 text-light">Account Information</p>
+                                <ul class="list-group">
+                                    <li class="list-group-item h2" id="nicknameField">Nickname in game: </li>
+                                    <li class="list-group-item h2" id="firstNameField">Last name: </li>
+                                    <li class="list-group-item h2" id="lastNameField">Last name:</li>
+                                    <li class="list-group-item h2" id="birthdateField">Date of Birth:</li>
+                                    <li class="list-group-item h2" id="emailField">Email: </li>
+                                </ul>
+                                <button type="button" id="logOutButton" class="btn btn-primary fs-4 text-light mt-1" onclick="logout()">Logout</button>
+                            </div>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary my-1" id="registrationSubmit">Register</button>
-                </form>
-            </div>
-            
-
-        
-        </div>
+                    <div class="col-8 mt-5" id="adminPanel" style="display: none;">
+                        <p class="h1 text-light"> Admin panel</p>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Nickname</th>
+                                    <th scope="col">Firstname</th>
+                                    <th scope="col">LastName</th>
+                                    <th scope="col">Birthdate</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Password</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <th contenteditable="true" id="nickName1">Nickname</th>
+                                    <th contenteditable="true" id="firstName1">Firstname</th>
+                                    <th contenteditable="true" id="lastName1">LastName</th>
+                                    <th contenteditable="true" id="birthdate1">Birthdate</th>
+                                    <th contenteditable="true" id="email1">Email</th>
+                                    <th contenteditable="true" id="password1">Password</th>
+                                    <th>
+                                        <button type="button" class="btn btn-primary fs-4 text-light" onclick="save(1)">Save</button>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <th contenteditable="true" id="nickName2">Nickname</th>
+                                    <th contenteditable="true" id="firstName2">Firstname</th>
+                                    <th contenteditable="true" id="lastName2">LastName</th>
+                                    <th contenteditable="true" id="birthdate2">Birthdate</th>
+                                    <th contenteditable="true" id="email2">Email</th>
+                                    <th contenteditable="true" id="password2">Password</th>
+                                    <th>
+                                        <button type="button" class="btn btn-primary fs-4 text-light" onclick="save(2)">Save</button>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <th contenteditable="true" id="nickName3">Nickname</th>
+                                    <th contenteditable="true" id="firstName3">Firstname</th>
+                                    <th contenteditable="true" id="lastName3">LastName</th>
+                                    <th contenteditable="true" id="birthdate3">Birthdate</th>
+                                    <th contenteditable="true" id="email3">Email</th>
+                                    <th contenteditable="true" id="password3">Password</th>
+                                    <th>
+                                        <button type="button" class="btn btn-primary fs-4 text-light" onclick="save(3)">Save</button>
+                                    </th>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                        
+                        <button type="button" id="save" class="btn btn-primary fs-4 text-light mt-1" onclick="save()">Save</button>
+                        <button type="button" id="logOutButton" class="btn btn-primary fs-4 text-light mt-1" onclick="logout()">Logout</button>
+                    </div>
+                </div>
+            </main>
         </div>
     </div>
 
@@ -136,9 +238,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="js/sliderscript.js"></script>  
     <script src="js/emailscript.js"></script>
-    <script src="js/countdown.js"></script>
 
 </body>
 </html>
+
